@@ -16,6 +16,16 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    border: "none",
+    borderRadius: "8px",
+    width: "80%",
+    height: "80%",
+    maxWidth: "none",
+    maxHeight: "none",
+    overflow: "hidden",
+  },
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
 };
 

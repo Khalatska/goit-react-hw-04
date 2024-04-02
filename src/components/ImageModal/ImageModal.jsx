@@ -17,6 +17,11 @@ const ImageModal = ({
           <img
             src={clickedImage.urls.regular}
             alt={clickedImage.alt_description}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+            }}
           />
         )}
       </Modal>

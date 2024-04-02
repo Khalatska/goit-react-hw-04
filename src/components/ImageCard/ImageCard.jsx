@@ -1,3 +1,4 @@
+import css from "./ImageCard.module.css";
 const ImageCard = ({ images, openModal }) => {
   return (
     <div>
@@ -5,8 +6,9 @@ const ImageCard = ({ images, openModal }) => {
         src={images.urls.small}
         alt={images.alt_description}
         onClick={() => openModal(images)}
+        className={css.imgCard}
       />
-      <p>
+      <p className={css.textCard}>
         <b>Likes: </b>
         {images.likes}
       </p>

@@ -18,6 +18,7 @@ export class UnsplashApi {
       params: {
         query: this.query,
         page: this.currentPage,
+        per_page: 12,
       },
     };
     const res = await instance.get("/search/photos", options);
