@@ -8,6 +8,7 @@ export class UnsplashApi {
   constructor() {
     this.currentPage = 1;
     this.query = null;
+    this.totalResult = 0;
   }
 
   async fetchImages() {

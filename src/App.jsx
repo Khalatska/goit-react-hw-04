@@ -39,6 +39,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [clickedImg, setClickedImage] = useState("");
+  const [isLastPage, setLastPage] = useState(false);
 
   function openModal(clickedImage) {
     setClickedImage(clickedImage);
@@ -59,6 +60,12 @@ function App() {
         setError(false);
         setIsLoading(true);
         const result = await unsplashApi.fetchImages();
+        unsplashApi.totalResult = result.total;
+        const maxPage = Math.ceil(unsplashApi.totalResult / 12);
+        const lastPage = maxPage <= unsplashApi.currentPage;
+        setLastPage(lastPage);
+
+        console.log(result);
 
         if (page === 1) {
           setImages(result.results);
@@ -89,7 +96,7 @@ function App() {
       <ImageGallery images={images} openModal={openModal} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
-      {Array.isArray(images) && images.length > 0 && (
+      {Array.isArray(images) && images.length > 0 && !isLastPage && (
         <LoadMoreBtn handleClick={handleClick} />
       )}
       <ImageModal
