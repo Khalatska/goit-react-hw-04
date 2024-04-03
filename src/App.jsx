@@ -83,6 +83,7 @@ function App() {
 
   const handleSearch = (query) => {
     setImages([]);
+    setPage(1);
     setQuery(query);
   };
 
